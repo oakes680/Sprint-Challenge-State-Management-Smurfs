@@ -43,6 +43,7 @@ const SmurfCard = ({age, name, height, ids}) => {
         axios.put(`http://localhost:3333/smurfs/${id}`, { name: names, age: ages, height: heights })
             .then(res => {
                 console.log('puttttttttt', res)
+                dispatch(fetchSmurf())
             })
             .catch(err => console.log(err.res))
             setNames('')
@@ -50,7 +51,7 @@ const SmurfCard = ({age, name, height, ids}) => {
             setHeights('')
             
             
-            dispatch(fetchSmurf())
+            
     }
 
 

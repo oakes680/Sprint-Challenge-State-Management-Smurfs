@@ -17,18 +17,21 @@ const SmurfsList = () => {
         dispatch(fetchSmurf())
     }, [dispatch])
 
+    
     const handleSubmit = (e) => {
-       
+       e.preventDefault()
         axios.post('http://localhost:3333/smurfs/', { name: name, age: age, height: height })
             .then(res => {
                 console.log('posssst', res)
+                dispatch(fetchSmurf())
             })
+            
             .catch(err => console.log(err.res))
             setName('')
             setAge('')
             setHeight('')
             
-            dispatch(fetchSmurf())
+           
     }
 
 
